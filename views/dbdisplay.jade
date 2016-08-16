@@ -6,3 +6,6 @@ block content
     ul
         each championEntry, i in synergyEntries
             li #{championEntry.champion}: #{championEntry.winrate}
+            ul
+              each allyEntry, i in championEntry.allyMatchups
+                li #{i}: #{allyEntry}

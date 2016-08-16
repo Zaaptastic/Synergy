@@ -13,7 +13,15 @@ dbGenerator.prototype.populateDb = function(req, res) {
   var collection = db.get('synergycollection');
 
   // Submit to the DB
-  var toInsert = [{ "champion" : "Lucian", "winrate" : "50%" }];
+  var toInsert = [{ "champion" : "Lucian",
+                    "winrate" : "50%",
+                    "allyMatchups" : {
+                      "Caitlyn" : "45%",
+                      "Ezreal" : "53%",
+                      "Jinx" : "50%"
+                    }
+
+ }];
   collection.insert(toInsert);
 }
 
