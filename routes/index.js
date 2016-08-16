@@ -17,10 +17,10 @@ router.post('/dbdisplay', function(req, res, next){
   dbGenerator.populateDb(req, res);
 
   var db = req.db;
-  var collection = db.get('champcollection');
+  var collection = db.get('synergycollection');
   collection.find({},{},function(e,docs){
       res.render('dbdisplay', {
-          "dbdisplay" : docs
+          "synergyEntries" : docs
       });
   });
 });

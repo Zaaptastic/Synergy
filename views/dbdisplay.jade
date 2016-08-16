@@ -4,6 +4,5 @@ block content
     h1.
         Champion List.
     ul
-        each champ, i in dbdisplay
-            li
-                = champ.champion
+        each championEntry, i in synergyEntries
+            li #{championEntry.champion}: #{championEntry.winrate}
