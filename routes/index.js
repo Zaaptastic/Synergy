@@ -15,7 +15,14 @@ router.get('/dbgenerate', function(req, res, next) {
 router.post('/dbdisplay', function(req, res, next){
   dbGenerator.logCurrentApiKey();
   dbGenerator.populateDb(req, res);
-  res.render('dbdisplay', { title: 'Current Database' });
+
+  var db = req.db;
+  var collection = db.get('champcollection');
+  collection.find({},{},function(e,docs){
+      res.render('dbdisplay', {
+          "dbdisplay" : docs
+      });
+  });
 });
 
 module.exports = router;

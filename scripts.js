@@ -13,7 +13,7 @@ dbGenerator.prototype.populateDb = function(req, res) {
   var collection = db.get('champcollection');
 
   // Submit to the DB
-  var toInsert = [{ "champion" : "Lucian", "champ" : "50%" }];
+  var toInsert = [{ "champion" : "Lucian", "winrate" : "50%" }];
   collection.insert(toInsert);
 }
 
