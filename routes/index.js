@@ -9,12 +9,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/dbgenerate', function(req, res, next) {
+  dbGenerator.getChampionIdFromKey(dbGenerator, 'Sona');
   res.render('dbgenerate', { title: 'Database Generator' });
 });
 
 router.post('/dbdisplay', function(req, res, next){
-  dbGenerator.logCurrentApiKey();
-  dbGenerator.populateDb(req, res);
+  dbGenerator.logCurrentApiKey(function(){
+    dbGenerator.populateDb(req, res);
+  });
 
   var db = req.db;
   var collection = db.get('synergycollection');

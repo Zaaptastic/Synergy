@@ -3,6 +3,14 @@ extends layout
 block content
     h1.
         Champion List.
+    table
+        thead
+        tbody
+          each championEntry, i in synergyEntries
+            tr
+              td #{championEntry.champion} ||
+              each allyEntry, i in championEntry.allyMatchups
+                td  #{i}: #{allyEntry}
     ul
         each championEntry, i in synergyEntries
             li #{championEntry.champion}: #{championEntry.winrate}
