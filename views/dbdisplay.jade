@@ -5,6 +5,8 @@ block content
         Champion List.
     table
         thead
+          each championKey, i in championKeyList
+            tr #{championKey}
         tbody
           each championEntry, i in synergyEntries
             tr
