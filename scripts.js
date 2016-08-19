@@ -28,18 +28,34 @@ dbGenerator.prototype.getAllChampions = function(callback) {
   var request = require('request');
   request("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=" + this.apiKey, function(error, response, body){
       championList = JSON.parse(body).data;
-      callback(championList);
+      var id = callback(championList);
+      console.log("Output id: " + id);
+      return id;
   });
 }
 
-dbGenerator.prototype.getChampionKeyFromId = function(dbGenerator, id) {
-  console.log("getChampionKeyFromId");
+dbGenerator.prototype.getChampionKeyFromId = function(dbGenerator, idToFind) {
+  dbGenerator.getAllChampions(function(championList){
+    for (var championEntry in championList){
+      var championId = championList[championEntry]["id"];
+      if (championId == idToFind){
+        return championList[championEntry]["key"];
+      }
+    }
+    return "null";
+  });
 }
 
-dbGenerator.prototype.getChampionIdFromKey = function(dbGenerator, key) {
+dbGenerator.prototype.getChampionIdFromKey = function(dbGenerator, keyToFind) {
   dbGenerator.getAllChampions(function(championList){
-    console.log(Object.keys(championList).length);
-});
+    for (var championEntry in championList){
+      var championKey = championList[championEntry]["key"];
+      if (championKey == keyToFind){
+        return championList[championEntry]["id"];
+      }
+    }
+    return -1;
+  });
 }
 
 module.exports = dbGenerator;

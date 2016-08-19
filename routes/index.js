@@ -9,7 +9,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/dbgenerate', function(req, res, next) {
-  dbGenerator.getChampionIdFromKey(dbGenerator, 'Sona');
   res.render('dbgenerate', { title: 'Database Generator' });
 });
 
