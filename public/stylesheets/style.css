@@ -3,6 +3,23 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+td {
+	border: 1px solid black;
+}
+
+tbody tr:hover {
+	background-color: #f5f5f5
+}
+
+thead {
+	background: lightgray;
+}
+
 a {
   color: #00B7FF;
 }

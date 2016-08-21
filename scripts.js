@@ -60,7 +60,7 @@ dbGenerator.prototype.getChampionIdFromKey = function(dbGenerator, keyToFind) {
 dbGenerator.prototype.getChampionKeyList = function(dbGenerator, callback){
   dbGenerator.getAllChampions(function(championList){
     var numChampions = Object.keys(championList).length;
-    var championKeyList = [];
+    var championKeyList = ["Placeholder"];
     for (var championEntry in championList){
       championKeyList.push(championList[championEntry]["key"]);
     }

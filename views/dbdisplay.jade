@@ -6,11 +6,11 @@ block content
     table
         thead
           each championKey, i in championKeyList
-            tr #{championKey}
+            td #{championKey}
         tbody
           each championEntry, i in synergyEntries
             tr
-              td #{championEntry.champion} ||
+              td #{championEntry.champion}
               each allyEntry, i in championEntry.allyMatchups
                 td  #{i}: #{allyEntry}
     ul
