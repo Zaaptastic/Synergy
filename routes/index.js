@@ -17,8 +17,19 @@ router.post('/dbdisplay', function(req, res, next){
   });
 
   var db = req.db;
-  var collection = db.get('synergycollection');
+  var collection = db.get('synergytestcollection');
   dbGenerator.getChampionKeyList(dbGenerator, function(championKeyList){
+    collection.remove( { } );
+    var toInsert = {};
+    for (var championKey1 in championKeyList){
+      var dataEntriesToInsert = {};
+      for (var championKey2 in championKeyList){
+        dataEntriesToInsert[championKeyList[championKey2]] = "50%";
+      }
+      toInsert[championKeyList[championKey1]] = dataEntriesToInsert;
+    }
+    collection.insert(toInsert);
+
     collection.find({},{},function(e,docs){
       res.render('dbdisplay', {
           "championKeyList" : championKeyList,

@@ -11,11 +11,3 @@ block content
           each championEntry, i in synergyEntries
             tr
               td #{championEntry.champion}
-              each allyEntry, i in championEntry.allyMatchups
-                td  #{i}: #{allyEntry}
-    ul
-        each championEntry, i in synergyEntries
-            li #{championEntry.champion}: #{championEntry.winrate}
-            ul
-              each allyEntry, i in championEntry.allyMatchups
-                li #{i}: #{allyEntry}
