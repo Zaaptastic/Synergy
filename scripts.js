@@ -6,22 +6,20 @@ dbGenerator.prototype.logCurrentApiKey = function() {
   console.log("Current API key: " + this.apiKey);
 }
 
-dbGenerator.prototype.populateDb = function(req, res) {
+dbGenerator.prototype.populateDb = function(collection, championKeyList, callback) {
   console.log("Populating Synergy Db");
 
-  var db = req.db;
-  var collection = db.get('synergytestcollection');
-  /*
-  // Submit to the DB
-  var toInsert = [{ "champion" : "Lucian",
-                    "winrate" : "50%",
-                    "allyMatchups" : {
-                      "Caitlyn" : "45%",
-                      "Ezreal" : "53%",
-                      "Jinx" : "50%"
-                    }
-                  }];
-  collection.insert(toInsert);*/
+  collection.remove( { } );
+  var toInsert = {};
+  for (var championKey1 in championKeyList){
+    var dataEntriesToInsert = {};
+    for (var championKey2 in championKeyList){
+      dataEntriesToInsert[championKeyList[championKey2]] = "50%";
+    }
+    toInsert[championKeyList[championKey1]] = dataEntriesToInsert;
+  }
+  collection.insert(toInsert);
+  callback();
 }
 
 dbGenerator.prototype.getAllChampions = function(callback) {

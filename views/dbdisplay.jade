@@ -5,9 +5,13 @@ block content
         Champion List.
     table
         thead
+          td Champions
           each championKey, i in championKeyList
             td #{championKey}
         tbody
-          each championEntry, i in synergyEntries
+          each entry, i in synergyEntries[0]
             tr
-              td #{championEntry.champion}
+              if i != '_id'
+                td #{i}
+                each winrate, i in entry
+                  td #{winrate}
