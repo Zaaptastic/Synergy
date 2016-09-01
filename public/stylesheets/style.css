@@ -23,3 +23,43 @@ thead {
 a {
   color: #00B7FF;
 }
+
+.invisible{
+	opacity: 0;
+}
+
+.fade{
+	opacity: 0.2;
+}
+
+.main-container-div {
+	width: 100%;
+	height: 100%;
+	display:table;
+}
+
+.container-div {
+	width: 30%;
+	padding: 10px;
+	height: 100%;
+	display: table-cell;
+}
+
+.ally-container {
+	background: lightblue;
+}
+
+.enemy-container {
+	background: pink;
+}
+
+.recommended-container{
+	background: lightgreen;
+}
+
+.champion-button{
+	height: 75px;
+	width: 75px;
+	display: inline-block;
+	border: 2px solid black;
+}

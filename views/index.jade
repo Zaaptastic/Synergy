@@ -1,5 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	h1= title
+	p Welcome to #{title}
+
+	div.main-container-div
+		div.container-div.ally-container
+			each championKey, i in championKeyList
+				div.champion-button #{championKey}
+		div.container-div.enemy-container
+			each championKey, i in championKeyList
+				div.champion-button #{championKey}
+		div.container-div.recommended-container

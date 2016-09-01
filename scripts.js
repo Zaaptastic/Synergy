@@ -14,11 +14,15 @@ dbGenerator.prototype.populateDb = function(collection, championKeyList, callbac
   for (var championKey1 in championKeyList){
     var dataEntriesToInsert = {};
     for (var championKey2 in championKeyList){
+      //var randomDeviation = Math.floor((Math.random() * 2000) - 1000);
       dataEntriesToInsert[championKeyList[championKey2]] = "50%";
     }
     toInsert[championKeyList[championKey1]] = dataEntriesToInsert;
   }
   collection.insert(toInsert);
+  //TODO: Figure out why this line must be here for dbdisplay to work. I think it's 
+  //something to do with the callback in an async. DB call
+  //console.log(collection.find());
   callback();
 }
 
