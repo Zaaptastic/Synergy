@@ -7,8 +7,13 @@ $(document).ready(function(){
     	var text = $(this).text();
     	
     	//Just for development, make corresponding elem appear
-    	$('<div></div>').attr('id',text).addClass('champion-button')
-    		.text(text).appendTo($('.recommended-container'));
+    	$('<div></div>').attr('id',text).addClass('champion-button').addClass('new')
+    		.appendTo($('.recommended-container'));
+    	$('<div></div>').addClass('champion-name').text(text).appendTo($('.new'));
+    	$('<img></img>').attr('src',"http://ddragon.leagueoflegends.com/cdn/6.17.1/img/champion/"
+    		+text+".png").addClass('champion-img').appendTo($('.new'));
+    	$('.new').removeClass('new');
+
 
     	//Finally, add the 'fade' class to mark the above as completed
     	$(this).addClass('fade');

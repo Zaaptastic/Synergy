@@ -63,3 +63,13 @@ a {
 	display: inline-block;
 	border: 2px solid black;
 }
+
+.champion-img{
+	height: 75px;
+	width: 75px;
+	position: relative;
+}
+
+.champion-name{
+	display: none;
+}
